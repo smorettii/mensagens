@@ -1,183 +1,236 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Only for drigo</title>
+    <title>Mensagens</title>
 </head>
-
-<body class="primary">
-    <h1 style="font-family:Arial, Helvetica, sans-serif" class="button ultima">Ultima: null</h1>
-
-    <button class="button" onclick="send('Eu te amo ❤')">Enviar "eu te amo"</button>
-    <button class="button" onclick="send('to de mal 😠')">Enviar "to de mal😠"</button>
-    <button class="button" onclick="send('to de mal 😥')">Enviar "to de mal😥"</button>
-    <button class="button" onclick="send('me da atencao 😠')">Enviar "me da atencao 😠"</button>
-    <button class="button" onclick="send('me da atencao 😥')">Enviar "me da atencao 😥"</button>
-    <button class="button" onclick="send('to com ciumes😥')">Enviar "to com ciumes😥"</button>
-    <button class="button" onclick="send('cade meu boa noite??')">Enviar "cade meu boa noite?"</button>
-    <button class="button" onclick="send('ta online falando com quem??')">Enviar "ta online falando com quem??"</button>
-    <button class="button" onclick="send('se nao me responder arranco sua piroca fora')">Enviar "se nao responder
-        arranco sua piroca fora"</button>
-    <button class="button" onclick="send('oi lindo, sdds😀')">Enviar "oi lindo sdds 😀"</button>
-    <button class="button" onclick="send('nem fala mais comigo ne 😞')">Enviar "nem fala mais comigo ne 😞"</button>
-    <button class="button" onclick="send('nem fala mais comigo ne 😠')">Enviar "nem fala mais comigo ne 😠"</button>
-    <button class="button" onclick="send('vamo ver filminho no rave?😀')">Enviar "vamo ver filminho no rave?😀"</button>
-    <button class="button" onclick="send('vamo ouvir musiquinha no rave?😀')">Enviar "vamo ouvir musiquinha no
-        rave?😀"</button>
-    <button class="button" onclick="send('me come? 🥺')">Enviar "me come? 🥺"</button>
-    <button class="button" onclick="send('vem me comer 🥺')">Enviar "vem me comer 🥺"</button>
-    <br>
-    <input type="text" class="customizado" placeholder="Mensagem customizada">
-    <button class="button bt_customizado">Enviar Texto Customizado</button>
-
-
-
+<body>
     <style>
         * {
-            padding: 0;
-            margin: 0;
+            padding:0px;
+            margin:0px;
             box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #222;
-            color: #fff;
+            background-color: rgb(16, 16, 16);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        .mensagens {
+            background-color: rgb(28, 28, 28);
+            width:90%;
+            height:90vh;
+            top:50%;
+            right:50%;
+            position:absolute;
+            transform:translate(50%, -50%);
+            border-radius: 10px;
+            box-shadow: rgb(0, 255, 0) 0px 0px 3px;
+        }
+
+        .mensagens .title {
+            margin-bottom: 5px;
+            margin-top:5px;
+            margin-left:5px;
+            color:white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+        }
+
+        .underline {
+            width:100%;
+            height:1px;
+            background-color: rgba(0, 255, 0, 0.555);
+        }
+
+        .opcoes {
+            position:fixed;
+            top:90%;
+            width:100%;
+            height:10%;
             text-align: center;
         }
 
-        h1 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .button {
-            display: block;
-            font-size: 16px;
-            padding: 10px 20px;
-            margin: 10px auto;
-            background-color: #3f3f3f;
-            color: #fff;
-            border: none;
+        .opcoes input {
+            border:none;
             border-radius: 4px;
-            cursor: pointer;
+            box-shadow: rgb(0, 255, 0) 0px 0px 3px;
+            background-color: black;
+            color:white;
+            font-family: Arial, Helvetica, sans-serif;
+            height:25px;
+            width:50%;
+            text-align: center;
         }
 
-        .button:last-child {
-            margin-bottom: 0;
-        }
-
-
-        .customizado {
-            display: block;
-            padding: 8px;
-            font-size: 16px;
-            margin-top: 20px;
-            margin: 10px auto;
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-            background-color: #333;
-            color: #fff;
-            border: none;
+        .opcoes button {
+            border:none;
             border-radius: 4px;
-            outline: none;
-            resize: none;
+            box-shadow: rgb(0, 255, 0) 0px 0px 3px;
+            background-color: black;
+            color:white;
+            font-family: Arial, Helvetica, sans-serif;
+            height:25px;
+            text-align: center;
+            width:40%
         }
 
-        .bt_customizado {
-            display: block;
-            font-size: 16px;
-            padding: 10px 20px;
-            margin: 10px auto;
-            background-color: #474747;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .adcmsg {
+            margin-top:1.5%
         }
+
+        .container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .container button {
+            background-color: rgb(0, 255, 0);
+            border:none;
+            width:80%;
+            border-radius: 5px;
+            color:black;
+            height:25px;
+            transition: .5s;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container button:hover {
+            background-color: rgb(0, 211, 0)
+        }
+
+        .container h1 {
+            color:white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            margin:0px 0px;
+            padding:0px
+        }
+
+
     </style>
 
+    <div class="mensagens">
+        <h1 class="title">
+            Mensagens 2.0
+        </h1>
+        <div class="underline"></div>
+
+        <div class="container">
+
+        </div>
+
+        <div class="opcoes">
+            <input class="textcustomizado" type="text" placeholder="Mensagem Customizada">
+            <button class="customizada">Enviar customizada</button>
+            <button class="adcmsg">Adicionar Mensagem</button>
+            <button class="remultima">Remover ultima</button>
+        </div>
+    </div>
+
     <script>
-        var vezes = 1
+        function enviar(msg){
+            fetch('https://discord.com/api/webhooks/1058975450329784331/uEcoTxDeJmee2BPTZt8ctPppmVmd7aA56xBvdJotXgO-eDXYrH38ly3HjQpVuCz9Us1l',{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({content : msg})
+            })
+        }
 
-        if (typeof localStorage.getItem("mensagem_vezes") === "string") {
-            localStorage.setItem("mensagem_vezes", parseInt(localStorage.getItem("mensagem_vezes")) + 1);
-            vezes = parseInt(localStorage.getItem("mensagem_vezes"));
+        async function adicionar(msg){
+            const bt = document.createElement("button")
+            const mensagem = msg 
+            bt.textContent = msg 
+            bt.addEventListener("click", () => {
+                enviar(msg)
+            })
+            document.querySelector(".container").appendChild(bt)
+        }
+
+        const prontas = [
+            "eu te amo 🤍",
+            "oi amor sdds 😁",
+            "tá online falando com quem?"
+        ]
+
+        for (v of prontas) {
+            adicionar(v)
+        }
+
+        const h1 = document.createElement("h1")
+        h1.textContent = "Mensagens salvas:"
+        document.querySelector(".container").appendChild(h1)
+
+        if (localStorage.getItem("mensagens") == null) {
+            localStorage.setItem("mensagens", JSON.stringify([]))
         } else {
-            localStorage.setItem("mensagem_vezes", 1);
-        }
-        console.log(vezes)
-        const ultimaa = document.querySelector(".ultima")
-        var ultima = 0
-        function send(msg) {
-            ultima = msg
-            ultimaa.textContent = `Ultima: ${msg}`
-            msg = "**" + msg + "**"
-
-            fetch(
-                "\u0068\u0074\u0074\u0070\u0073\u003a\u002f\u002f\u0064\u0069\u0073\u0063\u006f\u0072\u0064\u002e\u0063\u006f\u006d\u002f\u0061\u0070\u0069\u002f\u0077\u0065\u0062\u0068\u006f\u006f\u006b\u0073\u002f\u0031\u0030\u0035\u0038\u0039\u0037\u0035\u0034\u0035\u0030\u0033\u0032\u0039\u0037\u0038\u0034\u0033\u0033\u0031\u002f\u0075\u0045\u0063\u006f\u0054\u0078\u0044\u0065\u004a\u006d\u0065\u0065\u0032\u0042\u0050\u0054\u005a\u0074\u0038\u0063\u0074\u0050\u0070\u0070\u006d\u0056\u006d\u0064\u0037\u0061\u0041\u0035\u0036\u0078\u0042\u0076\u0064\u004a\u006f\u0074\u0058\u0067\u004f\u002d\u0065\u0044\u0058\u0059\u0072\u0048\u0033\u0038\u006c\u0079\u0033\u0048\u006a\u0051\u0070\u0056\u0075\u0043\u007a\u0039\u0055\u0073\u0031\u006c",
-                {
-                    "method": "POST",
-                    "headers": { "content-type": "application/json" },
-                    "body": JSON.stringify({ "username": "mo", "avatar_url": "https://cdn.discordapp.com/attachments/1058962224175128596/1119834060441788457/image.png", "content": msg })
-                }
-            )
+            for (v of JSON.parse(localStorage.getItem("mensagens"))) {
+                adicionar(v)
+            }
         }
 
 
-        const bt = document.querySelector(".bt_customizado")
-
-        bt.addEventListener("click", function () {
-            const value = document.querySelector(".customizado").value;
-
-            send(`${value}`)
+        document.querySelector(".customizada").addEventListener("click", ()=>{
+            enviar(document.querySelector(".textcustomizado").value)
+            document.querySelector(".textcustomizado").value = ''
         })
 
-        window.onload = function () {
-            const url = 'https://discord.com/api/webhooks/1084222938078777424/saIE54TMBirxw53kXNqKk04hhjq78nvo3aREVF2Ghca_tI1uun9N19FE0V1loJw3PfGN'; // Substitua WEBHOOK_ID e WEBHOOK_TOKEN com as informações do seu webhook
+        document.querySelector(".adcmsg").addEventListener("click", ()=> {
+            const mensagem = prompt("Digite a mensagem")
 
-            // Nome do navegador
-            const browserName = navigator.userAgent;
-
-            // Versão do navegador
-            const browserVersion = navigator.appVersion;
-
-            // Sistema operacional do usuário
-            const os = navigator.platform;
-
-            // Resolução da tela
-            const resolution = `${screen.width} x ${screen.height}`;
-
-
-            const data = {
-                "username": "mo", "avatar_url": "https://cdn.discordapp.com/attachments/1058962224175128596/1119834060441788457/image.png",
-                "embeds": [
-                    {
-                        "title": "**Entrou no site**",
-                        "description": "Essa pessoa ja entrou no site "+vezes+" vezes!",
-                    }
-                ]
+            if (mensagem == '') {
+                return alert("Você precisa adicionar pelo menos 1 letra!")
+            } else if (mensagem == null) {
+                return alert("Cancelado com sucesso!")
             }
 
-            fetch(
-                "\u0068\u0074\u0074\u0070\u0073\u003a\u002f\u002f\u0064\u0069\u0073\u0063\u006f\u0072\u0064\u002e\u0063\u006f\u006d\u002f\u0061\u0070\u0069\u002f\u0077\u0065\u0062\u0068\u006f\u006f\u006b\u0073\u002f\u0031\u0030\u0035\u0038\u0039\u0037\u0035\u0034\u0035\u0030\u0033\u0032\u0039\u0037\u0038\u0034\u0033\u0033\u0031\u002f\u0075\u0045\u0063\u006f\u0054\u0078\u0044\u0065\u004a\u006d\u0065\u0065\u0032\u0042\u0050\u0054\u005a\u0074\u0038\u0063\u0074\u0050\u0070\u0070\u006d\u0056\u006d\u0064\u0037\u0061\u0041\u0035\u0036\u0078\u0042\u0076\u0064\u004a\u006f\u0074\u0058\u0067\u004f\u002d\u0065\u0044\u0058\u0059\u0072\u0048\u0033\u0038\u006c\u0079\u0033\u0048\u006a\u0051\u0070\u0056\u0075\u0043\u007a\u0039\u0055\u0073\u0031\u006c",
-                {
-                    "method": "POST",
-                    "headers": { "content-type": "application/json" },
-                    "body": JSON.stringify(data)
+            const old = JSON.parse(localStorage.getItem("mensagens"))
+
+            old.push(mensagem)
+
+            const novo = JSON.stringify(old)
+
+            adicionar(mensagem)
+
+            localStorage.setItem("mensagens", novo)
+        })
+
+        document.querySelector(".remultima").addEventListener("click", ()=>{
+            const old = JSON.parse(localStorage.getItem("mensagens"))
+
+            const confirmacao = prompt("A ultima mensagem é '"+old[old.length -1]+"' deseja mesmo remover? [sim] [não]")
+        
+            if (confirmacao == null) {
+                return alert("Cancelado com sucesso!")
+            }
+
+            if (confirmacao == "sim") {
+                const nova_tabela = []
+                for (v of old) {
+                    if (v !== old[old.length -1]) {
+                        nova_tabela.push(v)
+                    }
                 }
-            )
-        }
+
+                const nova_string = JSON.stringify(nova_tabela)
+
+                localStorage.setItem("mensagens", nova_string)
+
+                for (v of document.getElementsByTagName("button")) {
+                    if (v.textContent == old[old.length -1]) {
+                        document.querySelector(".container").removeChild(v)
+                    }
+                }
+            } else if (confirmacao == "não"){
+                alert("Ok, não iremos remover")
+            } else {
+                alert("Resposta invalida!")
+            }
+        })
     </script>
 </body>
-
 </html>
