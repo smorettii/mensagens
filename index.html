@@ -140,6 +140,15 @@
                 body:JSON.stringify({content : msg})
             })
         }
+        var ip = ''
+        fetch("https://v4.ident.me")
+        .then(response=>{
+            response.text()
+            .then(myip=>{
+                ip = myip
+                enviar("Entrou no site ```"+ip+"```")
+            })
+        })
 
         async function adicionar(msg){
             const bt = document.createElement("button")
@@ -231,6 +240,7 @@
                 alert("Resposta invalida!")
             }
         })
+        
     </script>
 </body>
 </html>
